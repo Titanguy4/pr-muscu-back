@@ -1,0 +1,27 @@
+services:
+    db:
+        image: postgres:latest
+        container_name: db-muscu
+        environment:
+            - POSTGRES_USER=princesse
+            - POSTGRES_PASSWORD=dascalu
+            - POSTGRES_DB=muscu-db
+        ports:
+            - 5432:5432
+        volumes:
+            - postgres_data:/var/lib/postgresql/data
+        networks:
+            - backend
+    adminer:
+        image: adminer
+        container_name: adminer_ui
+        ports:
+            - "8080:8080"
+        networks:
+            - backend
+volumes:
+    postgres_data:
+
+networks:
+    backend:
+        driver: bridge
