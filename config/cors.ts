@@ -2,12 +2,7 @@ import { defineConfig } from '@adonisjs/cors'
 
 export default defineConfig({
   enabled: true,
-  origin: [
-    'http://localhost:4200',
-    'http://localhost:4000',
-    'http://localhost:3000',
-    'http://127.0.0.1:4200',
-  ],
+  origin: '*',
   methods: ['GET', 'HEAD', 'POST', 'PUT', 'DELETE', 'PATCH'],
   headers: [
     'Accept',
